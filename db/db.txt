@@ -1,0 +1,464 @@
+create a public function when a user types BIT it gets all courses where BIT is yes, showing lecture info too as shown in here 
+
+School of Law
+
+Bachelor of Laws	4 Years	1,917,000
+Bachelor of Law General	4 Years	1,917,000
+Masters of Laws in Commercial Law	2 Years	2,050,000
+Masters of Laws in Criminal Law and Criminalogy	2 Years	2,050,000
+Masters of Laws in International Law	2 Years	2,050,000
+Masters of Laws in Human Rights Law	2 Years	2,050,000
+Masters of Laws in International Trade Law	2 Years	2,050,000
+PhD in Law	3-5 Years	5,000,000
+
+College of Economics and Management
+
+Higher Education Certificate in Mathematics & Economics: 1 year 800000
+Higher Education Certificate in Mathematics & Geography: 1 year 800000
+Diploma in Business Administration: 2 years - 700000
+Diploma in Tourism and Hotel Management: 2 years - 700000
+Diploma in Human Resource Management: 2 years - 700000
+Diploma in Supplies and Procurement Management: 2 years - 700000
+Diploma in Secretarial Studies: 2 years - Ugx 1,305,300
+
+Bachelor of Business Administration (specializations in Accounting & Finance, Finance & Banking, Marketing, and International Business): 3 years - Ugx 1,305,300
+Bachelor of Arts in Economics: 3 years - Ugx 1,305,300
+Bachelor of Entreprenuership & Small Business Management: 3 years - Ugx 1.305,30
+Bachelor of Science in Statistics: 3 years - Ugx 1,562,000
+Bachelor of Economics and Applied Statistics: 3 years - Ugx 1,562,000
+Bachelor of Tourism and Hotel Management: 3 years - Ugx 1,305,300
+Bachelor of Human Resource Management: 3 years - Ugx 1,305,300
+Bachelor of Supplies & Procurement Management: 3 years - Ugx 1,305,300
+Bachelor of International Business Administration: 3 years - Ugx 1,305,300
+
+Master of Business Administration	2 Years	2,874,500
+Master of Arts in Economics	2 Years	2,874,500
+Master of Entreprenuership & Small Business Management	2 Years	2,874,500
+Master of Science in Statistics	2 Years	3,364,500
+Master of Economics and Applied Statistics	2 Years	3,364,500
+Master of Tourism and Hotel Management	2 Years	2,874,500
+Master of Human Resource Management	2 Years	2,874,500
+Master of Supplies & Procurement Management	2 Years	2,874,500
+Master of International Business Administration	2 Years	2,874,500
+
+PhD in Business Administration	3-5 Years	5,000,000
+PhD in Economics	3-5 Years	5,000,000
+PhD in Statistics	3-5 Years	5,000,000
+PhD in Tourism and Hotel Management	3-5 Years	5,000,000
+PhD in Human Resource Management	3-5 Years	5,000,000
+PhD in Supplies & Procurement Management	3-5 Years	5,000,000
+PhD in International Business Administration	3-5 Years	5,000,000
+
+
+College of Humanities and Social Sciences
+
+Higher Education Certificate in History & Literature: 1 year - cost not available
+Higher Education Certificate in History & Religious Education: 1 year - cost not available
+Diploma in Mass Communication: 2 years - cost not available
+Diploma in Counselling and Guidance: 2 years - cost not available
+Diploma in Development Studies: 2 years - cost not available
+Diploma in Public Administration: 2 years - cost not available
+Diploma in International Relations and Diplomatic Studies: 2 years - cost not available
+Diploma in Social and Community Development: 2 years - cost not available
+Diploma in Social Work and Social Administration: 2 years - cost not available
+
+Bachelor of Mass Communication: 3 years - Ugx 1,280,000
+Bachelor of Development Studies: 3 years - cost not available
+Bachelor of Arts in Public Administration: 3 years - Ugx 1,230,000
+Bachelor of Arts in International Relations & Diplomatic Studies: 3 years - Ugx 1,230,000
+Bachelor of Guidance and Counseling: 3 years - Ugx 1,280,000
+Bachelor of Social Work & Social Administration: 3 years - Ugx 1,230,000
+Bachelor of Social and Community Development: 3 years - Ugx 1,280,000
+
+Master of Mass Communication	2 Years	2,874,500
+Master of Development Studies	2 Years	2,874,500
+Master of Public Administration	2 Years	2,874,500
+Master of International Relations & Diplomatic Studies	2 Years	2,874,500
+Master of Guidance and Counseling	2 Years	2,874,500
+Master of Social Work & Social Administration	2 Years	2,874,500
+Master of Social and Community Development	2 Years	2,874,500
+
+PhD in Mass Communication	3-5 Years	5,000,000
+PhD in Development Studies	3-5 Years	5,000,000
+PhD in Public Administration	3-5 Years	5,000,000
+PhD in International Relations & Diplomatic Studies	3-5 Years	5,000,000
+PhD in Guidance and Counseling	3-5 Years	5,000,000
+PhD in Social Work & Social Administration	3-5 Years	5,000,000
+PhD in Social and Community Development	3-5 Years	5,000,000
+
+school of Mathematics and Computing (SOMAC)
+
+National Certificate in Information Communication Technology	2 Years	500,000
+National Certificate in Library and Information Science	2 Years	500,000
+Diploma in Computer Science	2 Years	1,020,000
+Diploma in Library and Information Science	2 Years	1,020,000
+Diploma in Information Technology	2 Years	1,020,000
+
+Bachelor of Computer Science	3 Years	1,862,000
+Bachelor of Information Technology	3 Years	1,862,000
+Bachelor of Library and Information Science	3 Years	1,862,000
+Bachelor of Business Computing	3 Years	1,862,000
+
+Master of Computer Science	2 Years	2,874,500
+Master of Information Technology	2 Years	2,874,500
+Master of Library and Information Science	2 Years	2,874,500
+Master of Business Computing	2 Years	2,874,500
+
+PhD in Computer Science	4 Years	5,000,000
+PhD in Information Technology	4 Years	5,000,000
+PhD in Library and Information Science	4 Years	5,000,000
+PhD in Business Computing	4 Years	5,000,000
+
+PhD in Mathematics	4 Years	5,000,000
+PhD in Chemistry	4 Years	5,000,000
+PhD in Physics	4 Years	5,000,000
+PhD in Education	4 Years	5,000,000
+PhD in Information Technology	4 Years	5,000,000
+PhD in Library and Information Science	4 Years	5,000,000
+PhD in Business Computing	4 Years	5,000,000
+
+college of Education
+
+Diploma in Secondary Education: Arts	2 Years	720,000
+Diploma in Secondary Education: Sciences	2 Years	800,000
+Diploma in Primary Education (Inservice)	2 Years	600,000
+
+Bachelor of Arts with Education	3 Years	1,030,000
+Bachelor of Arts with Education - Fine Art	3 Years	1,500,000
+Bachelor of Science with Education	3 Years	1,120,000
+Bachelor of Computer Science with Education	3 Years	1,562,000
+Bachelor of Education in Special Needs Education (Inservice)	2 Years	700,000
+Bachelor of Education in Special Needs Education (Regular)	3 Years	1,070,000
+Bachelor of Education Arts Primary (Inservice)	2 Years	700,000
+Bachelor of Education Science Primary (Inservice)	2 Years	700,000
+Bachelor of Education in Early Childhood and Primary Education (Regular)	3 Years	1,070,000
+Bachelor of Education in Early Childhood and Primary Education (Inservice)	2 Years	700,000
+Bachelor of Education Arts Secondary (Inservice)	2 Years	700,000
+Bachelor of Education Science Secondary (Inservice)	2 Years	700,000
+
+Master of Computer Science	2 Years	2,874,500
+Master of Information Technology	2 Years	2,874,500
+Master of Library and Information Science	2 Years	2,874,500
+Master of Business Computing	2 Years	2,874,500
+Master of Environmental Management	2 Years	2,874,500
+Master of Science in Wildlife Management & Conservation Management	2 Years	2,874,500
+Master of Science in Industrial Chemistry	2 Years	2,874,500
+Master of Science in Mathematics	2 Years	2,874,500
+Master of Science in Chemistry	2 Years	2,874,500
+Master of Science in Physics	2 Years	2,874,500
+Master of Education	2 Years	2,874,500
+
+school of digital, distance and e-learning
+
+Diploma in Business Administration 2 years 700,000
+Diploma in Development Studies	2 Years	700,000
+Diploma in Human Resource Management	2 Years	760,667
+Diploma in Supplies and Procurement Management	2 Years	766,667
+Diploma in Public Administration	2 Years	700,000
+
+Bachelor of Business Administration	4 Years	1,236,867
+Bachelor of Development Studies	4 Years	1,150,000
+Bachelor of Guidance and Counselling	4 Years	1,050,000
+Bachelor of Human Resource Management	4 Years	1,236,867
+Bachelor of Arts in Public Administration	4 Years	1,150,000
+Bachelor of Supplies and Procurement Management	4 Years	1,236,867
+
+Master of Business Administration	2 Years	2,473,734
+Master of Development Studies	2 Years	2,300,000
+Master of Guidance and Counselling	2 Years	2,100,000
+Master of Human Resource Management	2 Years	2,473,734
+Master of Public Administration	2 Years	2,300,000
+Master of Supplies and Procurement Management	2 Years	2,473,734
+Master of Environmental Management	2 Years	2,874,500
+Master of Science in Wildlife Management & Conservation Management	2 Years	2,874,500
+Master of Science in Industrial Chemistry	2 Years	2,874,500
+Master of Science in Mathematics	2 Years	2,874,500
+Master of Science in Chemistry	2 Years	2,874,500
+Master of Science in Physics	2 Years	2,874,500
+Master of Education	2 Years	2,874,500
+Master of Computer Science	2 Years	2,874,500
+Master of Information Technology	2 Years	2,874,500
+Master of Library and Information Science	2 Years	2,874,500
+Master of Business Computing	2 Years	2,874,500
+
+PhD in Business Administration	4 Years	4,947,468
+PhD in Development Studies	4 Years	4,600,000
+PhD in Guidance and Counselling	4 Years	4,200,000
+PhD in Human Resource Management	4 Years	4,947,468
+PhD in Public Administration	4 Years	4,600,000
+PhD in Supplies and Procurement Management	4 Years	4,947,468
+PhD in Environmental Management	4 Years	5,000,000
+PhD in Wildlife Management & Conservation Management	4 Years	5,000,000
+PhD in Industrial Chemistry	4 Years	5,000,000
+
+
+School of Natural and Applied Sciences
+
+Higher Education Certificate in Mathematics & Physics 1year 800,000
+Higher Education Certificate in Chemistry & Biology 1year 800,000
+Higher Education Certificate in Biology & Physics 1year 800,000
+Diploma in Environmental Management	2 Years	800,000
+
+Bachelor of Science in Environmental Management	3 Years	1,530,000
+Bachelor of Science in Wildlife Management & Conservation Management	3 Years	1,862,000
+Bachelor of Science in Industrial Chemistry	3 Years	1,862,000
+Bachelor of Science in Mathematics	3 Years	1,862,000
+Bachelor of Science in Chemistry	3 Years	1,862,000
+Bachelor of Science in Physics	3 Years	1,862,000
+
+
+Master of Business Administration	2 Years	2,473,734
+Master of Development Studies	2 Years	2,300,000
+Master of Guidance and Counselling	2 Years	2,100,000
+Master of Human Resource Management	2 Years	2,473,734
+Master of Public Administration	2 Years	2,300,000
+Master of Supplies and Procurement Management	2 Years	2,473,734
+Master of Environmental Management	2 Years	2,874,500
+Master of Science in Wildlife Management & Conservation Management	2 Years	3,124,000
+
+Master of Science in Industrial Chemistry	2 Years	3,124,000
+Master of Science in Mathematics	2 Years	3,124,000
+Master of Science in Chemistry	2 Years	3,124,000
+Master of Science in Physics	2 Years	3,124,000
+
+
+PhD in Business Administration	4 Years	4,947,468
+PhD in Development Studies	4 Years	4,600,000
+PhD in Guidance and Counselling	4 Years	4,200,000
+PhD in Human Resource Management	4 Years	4,947,468
+PhD in Public Administration	4 Years	4,600,000
+PhD in Supplies and Procurement Management	4 Years	4,947,468
+PhD in Environmental Management	4 Years	5,000,000
+PhD in Wildlife Management & Conservation Management	4 Years	5,248,000
+
+
+PhD in Industrial Chemistry	4 Years	5,248,000
+PhD in Mathematics	4 Years	5,248,000
+PhD in Chemistry	4 Years	5,248,000
+PhD in Physics	4 Years	5,248,000
+PhD in Education	4 Years	5,000,000
+PhD in Computer Science	4 Years	5,000,000
+PhD in Information Technology	4 Years	5,000,000
+PhD in Library and Information Science	4 Years	5,000,000
+PhD in Business Computing	4 Years	5,000,000
+
+CREATE TABLE course (
+  course_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+  course_code varchar(255),
+  course_title varchar(255),
+  l_code varchar(255),
+  DIT ENUM('Yes', 'No') NOT NULL,
+  BIT ENUM('Yes', 'No') NOT NULL,
+  BCS ENUM('Yes', 'No') NOT NULL,
+  BIS ENUM('Yes', 'No') NOT NULL,
+  BIC ENUM('Yes', 'No') NOT NULL,
+  BSTAT ENUM('Yes', 'No') NOT NULL,
+  year_of_study ENUM('1', '2', '3', '4') NOT NULL,
+  semester ENUM('1', '2') NOT NULL,
+  primary key (course_id)
+);
+
+
+semester 11 BIT
+Year 1, Semester 1
+
+UCC1101 - English Language Skills
+UCC1100 - Computer Fundamentals
+ITE1102 - Introduction to Information Technology
+ITE1103 - Mathematical Techniques For IS/IT
+IFS1111 - Fundamentals of Information Technology
+HRM1101 - Principles and Practice of Management
+Year 1, Semester 2
+
+UCC1201 - Communication Skills
+COS1211 - Fundamentals of Programming
+ITE1203 - Internet Technologies and Web Design
+STA2105 - Introduction to Probability and Statistics
+ITE1204 - Network Fundamentals
+ITE1202 - Electronic Commerce
+Year 2, Semester 1
+
+COS2211 - Data Structures and Algorithms
+ITE2201 - Database Systems
+ITE2202 - Operating Systems
+IFS2211 - Information Systems Analysis and Design
+STA2205 - Statistical Computing
+HRM2201 - Organizational Behavior
+Year 2, Semester 2
+
+COS2221 - Computer Systems
+ITE2203 - Web Development
+ITE2204 - Computer Networks
+IFS2221 - Information Technology Project Management
+STA2206 - Data Mining
+HRM2202 - Human Resource Management
+Year 3, Semester 1
+
+COS3311 - Software Engineering
+ITE3301 - Artificial Intelligence
+ITE3302 - Cybersecurity
+IFS3311 - Information Systems Security
+STA3305 - Data Science
+HRM3301 - Entrepreneurship
+Year 3, Semester 2
+
+COS3321 - Computer Graphics
+ITE3303 - Cloud Computing
+ITE3304 - Internet of Things
+IFS3321 - IT Service Management
+STA3306 - Business Intelligence
+HRM3302 - Strategic Management
+
+
+
+BCS
+
+Year 1, Semester 1
+
+UCC1101 - English Language Skills
+COS1100 - Computer Fundamentals
+COS1101 - Introduction to Computer Science
+MTH1101 - Discrete Mathematics
+COS1102 - Programming Fundamentals
+STA1101 - Introduction to Statistics
+Year 1, Semester 2
+
+UCC1201 - Communication Skills
+COS1201 - Data Structures and Algorithms
+COS1202 - Computer Organization
+MTH1201 - Calculus
+COS1203 - Web Development
+STA1201 - Probability and Statistics
+Year 2, Semester 1
+
+COS2211 - Object-Oriented Programming
+COS2212 - Computer Systems
+COS2213 - Database Systems
+MTH2211 - Linear Algebra
+COS2214 - Computer Networks
+STA2201 - Statistical Computing
+Year 2, Semester 2
+
+COS2221 - Software Engineering
+COS2222 - Operating Systems
+COS2223 - Artificial Intelligence
+MTH2221 - Numerical Analysis
+COS2224 - Human-Computer Interaction
+STA2202 - Data Mining
+Year 3, Semester 1
+
+COS3311 - Computer Graphics
+COS3312 - Computer Vision
+COS3313 - Machine Learning
+MTH3311 - Computational Complexity
+COS3314 - Network Security
+STA3301 - Data Science
+Year 3, Semester 2
+
+COS3321 - Cloud Computing
+COS3322 - Internet of Things
+COS3323 - Cybersecurity
+MTH3321 - Cryptography
+COS3324 - Computer Science Project
+STA3302 - Business Intelligence
+
+
+BIC
+Year 1, Semester 1
+
+CHM1101 - General Chemistry
+CHM1102 - Organic Chemistry
+MTH1101 - Mathematics for Chemists
+PHY1101 - Physics for Chemists
+IND1101 - Introduction to Industrial Chemistry
+Year 1, Semester 2
+
+CHM1201 - Analytical Chemistry
+CHM1202 - Physical Chemistry
+MTH1201 - Calculus for Chemists
+PHY1201 - Thermodynamics
+IND1201 - Chemical Engineering Principles
+Year 2, Semester 1
+
+CHM2211 - Inorganic Chemistry
+CHM2212 - Biochemistry
+IND2211 - Unit Operations in Chemical Engineering
+MTH2211 - Statistics for Chemists
+PHY2211 - Quantum Mechanics
+IND2212 - Chemical Plant Design
+Year 2, Semester 2
+
+CHM2221 - Organic Synthesis
+CHM2222 - Spectroscopy
+IND2221 - Chemical Reaction Engineering
+MTH2221 - Numerical Methods for Chemists
+PHY2221 - Electrochemistry
+IND2222 - Process Control and Instrumentation
+Year 3, Semester 1
+
+CHM3311 - Advanced Analytical Chemistry
+CHM3312 - Medicinal Chemistry
+IND3311 - Industrial Chemical Processes
+MTH3311 - Computational Chemistry
+PHY3311 - Materials Science
+IND3312 - Environmental Chemistry
+Year 3, Semester 2
+
+CHM3321 - Polymer Chemistry
+CHM3322 - Catalysis
+IND3321 - Chemical Plant Management
+MTH3321 - Mathematical Modeling for Chemists
+PHY3321 - Nanotechnology
+IND3322 - Industrial Chemistry Project
+
+
+
+BSTAT
+Year 1, Semester 1
+
+UCC1101 - English Language Skills
+STA1101 - Introduction to Statistics
+MTH1101 - Calculus
+STA1102 - Descriptive Statistics
+COM1101 - Computer Applications
+ECO1101 - Principles of Economics
+Year 1, Semester 2
+
+UCC1201 - Communication Skills
+STA1201 - Probability Theory
+MTH1201 - Linear Algebra
+STA1202 - Inferential Statistics
+COM1201 - Programming for Statisticians
+ECO1201 - Economic Statistics
+Year 2, Semester 1
+
+STA2211 - Statistical Inference
+MTH2211 - Mathematical Statistics
+STA2212 - Regression Analysis
+COM2211 - Data Analysis with R
+ECO2211 - Econometrics
+STA2213 - Time Series Analysis
+Year 2, Semester 2
+
+STA2221 - Sampling Theory
+MTH2221 - Stochastic Processes
+STA2222 - Non-Parametric Statistics
+COM2221 - Data Mining
+ECO2221 - Applied Econometrics
+STA2223 - Survival Analysis
+Year 3, Semester 1
+
+STA3311 - Advanced Statistical Inference
+MTH3311 - Computational Statistics
+STA3312 - Multivariate Analysis
+COM3311 - Machine Learning for Statisticians
+ECO3311 - Bayesian Econometrics
+STA3313 - Statistical Computing
+Year 3, Semester 2
+
+STA3321 - Advanced Regression Analysis
+MTH3321 - Mathematical Finance
+STA3322 - Spatial Statistics
+COM3321 - Big Data Analytics
+ECO3321 - Time Series Econometrics
+STA3323 - Statistics Project

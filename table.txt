@@ -1,0 +1,175 @@
+<div id="datatable" style="max-height: 325px; overflow-y: auto;">
+            <table class="table table-hover align-middle mb-0 bg-white">
+              <thead class="bg-light">
+                <tr>
+                  <th>Lecturer</th>
+                  <th>Course Unit</th>
+                  <th>Semester</th>
+                  <th>Result</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5rem 1rem;">
+                    <div class="d-flex align-items-center">
+                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
+                        <p class="text-muted mb-0"> 077 840 829</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <p class="fw-normal mb-1">English Language Skills</p>
+                    <p class="text-muted mb-0">UCC1101</p>
+                  </td>
+                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
+                  <td style="padding: 0.5rem 1rem;">B+</td>
+                  <td style="padding: 0.5rem 1rem;">
+                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
