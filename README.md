@@ -1,2 +1,2 @@
-Created by Hot Arrow 
+Created by Hot Arrow 🏹
 Inspired by Trvp Denis
