@@ -1,6 +1,8 @@
 <?php
 require('./../includes/connect/beta.php');
 //logout
+$get = new Trvpsearch($link);
+
 if ($user->logout()) {
     //logged in return to index page
     header('Location: ./../');
