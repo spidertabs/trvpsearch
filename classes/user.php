@@ -311,7 +311,7 @@ class Trvpsearch
                             <div class="d-flex justify-content-between">
                                 <div class="col" style="margin-right: 10px;">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="email" name="email" class="email form-control form-control-sm" value="hello@gmail.com" />
+                                        <input type="email" name="email" class="email form-control form-control-sm" />
                                         <label class="form-label" for="email">Email address</label>
                                     </div>
                                     <!-- <div class="emailErr mt-n2"></div> -->
