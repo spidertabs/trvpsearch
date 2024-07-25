@@ -184,7 +184,7 @@ $get = new Trvpsearch($link);
                   <!-- Full name -->
                   <div class="col">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="fullname" name="fullname" class="form-control " autocomplete="off" value="hello M" />
+                      <input type="text" id="fullname" name="fullname" class="form-control " autocomplete="off" />
                       <label class="form-label" for="fullname">Full name</label>
                     </div>
                     <div id="fullnameErr" class="mt-n2"></div>
@@ -192,7 +192,7 @@ $get = new Trvpsearch($link);
                   <!-- Registration Number -->
                   <div class="col">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="regNo" name="regNo" class="form-control" autocomplete="off" value="2034-08-34221" />
+                      <input type="text" id="regNo" name="regNo" class="form-control" autocomplete="off" />
                       <label class="form-label" for="regNo">Registration Number</label>
                     </div>
                     <div id="regNoErr" class="mt-n2"></div>
@@ -201,7 +201,7 @@ $get = new Trvpsearch($link);
                 <div class="mt-4 mb-3">
                   <!-- Email -->
                   <div data-mdb-input-init class="form-outline">
-                    <input type="email" id="email" name="email" class="form-control " autocomplete="off" value="hello@gmail.com" />
+                    <input type="email" id="email" name="email" class="form-control " autocomplete="off" />
                     <label class="form-label" for="emailaddress">Email address </label>
                   </div>
                   <div id="emailErr" class="mt-n2"></div>
@@ -209,7 +209,7 @@ $get = new Trvpsearch($link);
                 <div class="mt-4 mb-3">
                   <!-- password -->
                   <div data-mdb-input-init class="form-outline">
-                    <input type="password" id="password" name="password" class="form-control " autocomplete="off" value="hellogmail" />
+                    <input type="password" id="password" name="password" class="form-control " autocomplete="off" />
                     <label class="form-label" for="password">Password </label>
                   </div>
                   <div id="passwordErr" class="mt-n2"></div>
