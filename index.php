@@ -56,7 +56,6 @@ $get = new Trvpsearch($link);
           <li class="nav-item active">
             <a class="nav-link text-dark" aria-current="page" href="#">
               <b>TRVP SEARCH</b>
-              <?php echo $_SESSION['studentId']; ?>
             </a>
           </li>
         </ul>
