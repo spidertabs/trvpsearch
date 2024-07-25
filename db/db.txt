@@ -1,3 +1,4 @@
+// cousers offered at KIU
 create a public function when a user types BIT it gets all courses where BIT is yes, showing lecture info too as shown in here 
 
 School of Law
