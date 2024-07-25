@@ -4,21 +4,57 @@ SET time_zone = "+00:00";
 CREATE TABLE students (
   studentId INT NOT NULL AUTO_INCREMENT,
   phoneNumber INT,
-  s_avatar VARCHAR(255),
+  avatar VARCHAR(255),
   fullname VARCHAR(255) NOT NULL,
-  s_sex ENUM('Male','Female','NA') DEFAULT 'NA' NOT NULL,
+  sex ENUM('Male','Female','NA') DEFAULT 'NA' NOT NULL,
   regNo VARCHAR(255) NOT NULL,
   school ENUM('somac','sonas','economics') NOT NULL,
   programme ENUM('dit','bit','dcs','bcs','dic','bic','bstat','dstat') NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  salt VARCHAR(32),
   activation ENUM('Yes','No') DEFAULT 'Yes' NOT NULL,
   dateJoined DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (studentId)
 );
 
-INSERT INTO students (phoneNumber, s_avatar, fullname, s_sex, regNo, school, programme, email, password, salt, activation) VALUES
+CREATE TABLE lecturers (
+  lecturer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+  l_code int not null,
+  l_avatar varchar(255),
+  l_name varchar(255),
+  gender enum('Male','Female')  not null,
+  mobile int not null,
+  primary key (lecturer_id)
+);
+
+CREATE TABLE course (
+  course_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+  l_code varchar(255),
+  course_code varchar(255),
+  course_title varchar(255),
+  DIT ENUM('Yes', 'No') NOT NULL,
+  BIT ENUM('Yes', 'No') NOT NULL,
+  DCS ENUM('Yes', 'No') NOT NULL,
+  BCS ENUM('Yes', 'No') NOT NULL,
+  BIC ENUM('Yes', 'No') NOT NULL,
+  DIC ENUM('Yes', 'No') NOT NULL,
+  DSTAT ENUM('Yes', 'No') NOT NULL,
+  BSTAT ENUM('Yes', 'No') NOT NULL,
+  year ENUM('1', '2', '3', '4') NOT NULL,
+  semester ENUM('1', '2') NOT NULL,
+  primary key (course_id)
+);
+
+CREATE TABLE course_results (
+  result_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+  regNo int not null,
+  course_code int not null,
+  grade ENUM('A', 'B+', 'B-', 'C+', 'C-', 'D+', 'D-', 'F') NOT NULL,
+  cr_status ENUM('NA','Passed', 'TBD', 'Redo') NOT NULL,
+  primary key (result_id)
+);
+
+INSERT INTO students (phoneNumber, avatar, fullname, sex, regNo, school, programme, email, password, salt, activation) VALUES
 (0712345678, 'avatar1.jpg', 'Kofi Owusu', 'Male', '2022-08-22245', 'somac', 'dit', 'kofiowusu@yahoo.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'salt1', 'Yes'),
 (0723456789, 'avatar2.jpg', 'Nneoma Okoro', 'Female', '2022-08-22246', 'somac', 'dit', 'nneomaokoro@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'salt2', 'Yes'),
 (0734567890, 'avatar3.jpg', 'Abdulai Jalloh', 'Male', '2022-08-22247', 'somac', 'bit', 'abdulaijalloh@yahoo.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'salt3', 'Yes'),
@@ -40,17 +76,8 @@ INSERT INTO students (phoneNumber, s_avatar, fullname, s_sex, regNo, school, pro
 (0767890123, 'avatar16.jpg', 'Ebenezer Osei', 'Male', '2022-08-22260', 'economics', 'bstat', 'ebenezerosei@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'alt16', 'Yes');
 
 
-CREATE TABLE lecturers (
-  lecturer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-  l_code int not null,
-  l_avatar varchar(255),
-  l_name varchar(255),
-  sex enum('Male','Female')  not null,
-  phoneNumber int not null,
-  primary key (lecturer_id)
-);
 
-INSERT INTO lecturers (l_code, l_avatar, l_name, sex, phoneNumber) VALUES
+INSERT INTO lecturers (l_code, l_avatar, l_name, gender, mobile) VALUES
 (101, 'avatar1.jpg', 'Dr. Kwame Owusu', 'Male', 0712345678),
 (102, 'avatar2.jpg', 'Dr. Nneoma Okoro', 'Female', 0723456789),
 (103, 'avatar3.jpg', 'Dr. Abdulai Jalloh', 'Male', 0734567890),
@@ -87,25 +114,6 @@ INSERT INTO lecturers (l_code, l_avatar, l_name, sex, phoneNumber) VALUES
 (134, 'avatar34.jpg', 'Dr. Francis Boateng', 'Male', 0745678901),
 (135, 'avatar35.jpg', 'Dr. Diana Appiah', 'Female', 0756789012),
 (136, 'avatar36.jpg', 'Dr. Gabriel Ofori', 'Male', 0767890123);
-
-
-CREATE TABLE course (
-  course_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-  l_code varchar(255),
-  course_code varchar(255),
-  course_title varchar(255),
-  DIT ENUM('Yes', 'No') NOT NULL,
-  BIT ENUM('Yes', 'No') NOT NULL,
-  DCS ENUM('Yes', 'No') NOT NULL,
-  BCS ENUM('Yes', 'No') NOT NULL,
-  BIC ENUM('Yes', 'No') NOT NULL,
-  DIC ENUM('Yes', 'No') NOT NULL,
-  DSTAT ENUM('Yes', 'No') NOT NULL,
-  BSTAT ENUM('Yes', 'No') NOT NULL,
-  year ENUM('1', '2', '3', '4') NOT NULL,
-  semester ENUM('1', '2') NOT NULL,
-  primary key (course_id)
-);
 
 
 INSERT INTO course (l_code, course_code, course_title, DIT, BIT, DCS, BCS, BIC, DIC, DSTAT, BSTAT, year, semester) VALUES
@@ -261,15 +269,6 @@ INSERT INTO course (l_code, course_code, course_title, DIT, BIT, DCS, BCS, BIC, 
 ('135', 'ECO3321', 'Time Series Econometrics', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', '3', '2'),
 ('136', 'STA3323', 'Statistics Project', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', '3', '2');
 
-
-CREATE TABLE course_results (
-  result_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-  regNo int not null,
-  course_code int not null,
-  grade ENUM('A', 'B+', 'B-', 'C+', 'C-', 'D+', 'D-', 'F') NOT NULL,
-  cr_status ENUM('NA','Passed', 'TBD', 'Redo') NOT NULL,
-  primary key (result_id)
-);
 
 INSERT INTO course_results (regNo, course_code, grade, cr_status) VALUES
 (2022-08-22245, 'UCC1101', 'B+', 'Passed'),
