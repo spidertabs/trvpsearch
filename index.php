@@ -73,45 +73,11 @@ $get = new Trvpsearch($link);
           <h1 class="mb-4">Trvp Search</h1>
           <form id="search-form">
             <div class="form-outline mb-2" data-mdb-input-init>
-              <input type="search" class="form-control" id="search-input" style="min-width: 30rem;">
-              <label class="form-label" for="search-input">Search</label>
+              <input type="search" class="form-control" id="search-box" name="search-box" style="min-width: 30rem;">
+              <label class="form-label" for="search-box">Search</label>
             </div>
           </form>
-          <div id="datatable" style="max-height: 325px; overflow-y: auto;">
-          <table class="table table-hover align-middle mb-0 bg-white">
-              <thead class="bg-light">
-                <tr>
-                  <th>Lecturer</th>
-                  <th>Course Unit</th>
-                  <th>Semester</th>
-                  <th>Result</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="padding: 0.5rem 1rem;">
-                    <div class="d-flex align-items-center">
-                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
-                      <div class="ms-3">
-                        <p class="fw-bold mb-1">Ms. Nuwagaba Lehema</p>
-                        <p class="text-muted mb-0"> 077 840 829</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td style="padding: 0.5rem 1rem;">
-                    <p class="fw-normal mb-1">English Language Skills</p>
-                    <p class="text-muted mb-0">UCC1101</p>
-                  </td>
-                  <td style="padding: 0.5rem 1rem;"> 1:1</td>
-                  <td style="padding: 0.5rem 1rem;">B+</td>
-                  <td style="padding: 0.5rem 1rem;">
-                    <span class="badge badge-success rounded-pill d-inline">Finished</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div id="search-results" style="max-height: 325px; overflow-y: auto;"></div>
           <p class="mt-3"> Simply search that course unit!! </p>
         </div>
       </div>
@@ -144,12 +110,6 @@ $get = new Trvpsearch($link);
               </div>
             </div>
           </div>
-          <!-- <p style="color: hsl(217, 10%, 50.8%);text-align: justify;">
-            Your ultimate tool to effortlessly search and discover courses that match your academic interests and requirements.
-
-            Sign up today to unlock customized search features tailored to your unique preferences and academic goals. 
-            Make your course selection process simple and efficient with <b>Trvp Search</b>.
-          </p> -->
         </div>
         <div class="col-lg-6 mb-5 mb-lg-0">
           <div class="card">
@@ -248,6 +208,7 @@ $get = new Trvpsearch($link);
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="js/mdb.umd.min.js"></script>
   <script src="js/script.js"></script>
+  
 
 </body>
 
