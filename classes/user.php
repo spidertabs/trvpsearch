@@ -217,6 +217,7 @@ class Trvpsearch
             if (password_verify($password, $hashedPassword)) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['studentId'] = $row['studentId'];
+                $_SESSION['regNo'] = $row['regNo'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['fullname'] = $row['fullname'];
                 return ['success' => true, 'message' => 'Login successful'];
@@ -246,6 +247,7 @@ class Trvpsearch
             session_destroy();
             unset($_SESSION['loggedin']);
             unset($_SESSION['studentId']);
+            unset($_SESSION['regNo']);
             unset($_SESSION['email']);
             unset($_SESSION['fullname']);
             return true;
@@ -269,36 +271,39 @@ class Trvpsearch
                 $firstName = $names[0];
                 $secondName = isset($names[1]) ? $names[1] : '';
 ?>
-                <div class="dropdown">
-                    <a data-mdb-dropdown-init class="btn btn-success rounded-pill dropdown-toggle d-flex align-items-center hidden-arrow btn-sm" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" style="padding: 5px 10px">
-                        <img src="images/avatar.jpg" class="rounded-circle" height="35" loading="lazy" />
-                        <span class="ps-2" style="font-size: initial;"><?php echo $secondName; ?></span>
-                        <span class="badge badge-warning ms-2"><?php echo $programme; ?></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="status" checked />
-                                    <label class="form-check-label" for="status"> Status </label>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="result" checked />
-                                    <label class="form-check-label" for="result"> Result </label>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider my-0" />
-                        </li>
-                        <li class="text-center">
-                            <a class="dropdown-item bg-danger text-white" href="logout"> <i class="fas fa-power-off"></i> Logout</a>
-                        </li>
-                    </ul>
+                <div style="display: contents;">
+                    <div class="dropdown">
+                        <a data-mdb-dropdown-init class="btn btn-success rounded-pill dropdown-toggle d-flex align-items-center hidden-arrow btn-sm" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" style="padding: 5px 10px">
+                            <img src="images/avatar.jpg" class="rounded-circle" height="35" loading="lazy" />
+                            <span class="ps-2" style="font-size: initial;"><?php echo $secondName; ?></span>
+                            <span class="badge badge-warning ms-2"><?php echo $programme; ?></span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="status" checked />
+                                        <label class="form-check-label" for="status"> Status </label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="result" checked />
+                                        <label class="form-check-label" for="result"> Result </label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider my-0" />
+                            </li>
+                            <li class="text-center">
+                                <a class="dropdown-item bg-danger text-white" href="logout"> <i class="fas fa-power-off"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             <?php
             }
@@ -348,123 +353,6 @@ class Trvpsearch
 <?php
         }
     }
-    public function search($options = array())
-    {
-        $options = $this->mergeDefaultOptions($options);
-        $query_sql = $this->buildQuery();
-        $conditions = $this->buildConditions($options);
-        $query_sql = $this->appendConditionsToQuery($query_sql, $conditions);
-
-        try {
-            $result = $this->executeQuery($query_sql, $conditions['params']);
-            return $this->formatResults($result);
-        } catch (PDOException $e) {
-            error_log('Database query failed: ' . $e->getMessage());
-            return json_encode(array('error' => 'Database query failed.'));
-        }
-    }
-    private function mergeDefaultOptions($options)
-    {
-        $defaultOptions = array(
-            'programme' => null,
-            'year' => null,
-            'semester' => null,
-            'lecturer_code' => null,
-            'lecturer_name' => null,
-            'student_id' => null,
-            'course_code' => null
-        );
-        return array_merge($defaultOptions, $options);
-    }
-    private function buildQuery()
-    {
-        return "SELECT s.fullname, s.regNo, s.programme, l.l_name, l.l_avatar, l.mobile, 
-                   c.course_title, c.course_code, cr.grade, cr.cr_status, 
-                   cr.result_id, cr.regNo AS studentRegNo
-            FROM course_results cr
-            INNER JOIN students s ON cr.regNo = s.regNo
-            INNER JOIN course c ON cr.course_code = c.course_code
-            INNER JOIN lecturers l ON c.l_code = l.l_code";
-    }
-    private function buildConditions($options)
-    {
-        $conditions = array();
-        $params = array();
-
-        if ($options['programme']) {
-            $conditions[] = "s.programme = :programme";
-            $params[':programme'] = $options['programme'];
-        }
-
-        if ($options['year'] && $options['semester']) {
-            $conditions[] = "c.year = :year AND c.semester = :semester";
-            $params[':year'] = $options['year'];
-            $params[':semester'] = $options['semester'];
-        }
-
-        if ($options['lecturer_code']) {
-            $conditions[] = "l.l_code = :lecturer_code";
-            $params[':lecturer_code'] = $options['lecturer_code'];
-        }
-
-        if ($options['lecturer_name']) {
-            $conditions[] = "l.l_name LIKE :lecturer_name";
-            $params[':lecturer_name'] = "%{$options['lecturer_name']}%";
-        }
-
-        if ($options['student_id']) {
-            $conditions[] = "s.studentId = :student_id";
-            $params[':student_id'] = $options['student_id'];
-        }
-
-        if ($options['course_code']) {
-            $conditions[] = "c.course_code = :course_code";
-            $params[':course_code'] = $options['course_code'];
-        }
-
-        return array('conditions' => $conditions, 'params' => $params);
-    }
-    private function appendConditionsToQuery($query_sql, $conditions)
-    {
-        if (count($conditions['conditions']) > 0) {
-            $query_sql .= " WHERE " . implode(" AND ", $conditions['conditions']);
-        }
-        return $query_sql;
-    }
-    private function executeQuery($query_sql, $params)
-    {
-        $stmt = $this->_link->prepare($query_sql);
-        $stmt->execute($params);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    private function formatResults($result)
-    {
-        $data = array();
-        $isLoggedIn = $this->isLoggedIn();
-
-        foreach ($result as $row) {
-            $entry = array(
-                'student_name' => htmlspecialchars($row['fullname']),
-                'student_regNo' => htmlspecialchars($row['studentRegNo']),
-                'programme' => htmlspecialchars($row['programme']),
-                'lecturer' => htmlspecialchars($row['l_name']),
-                'lecturer_avatar' => htmlspecialchars($row['l_avatar']),
-                'course_title' => htmlspecialchars($row['course_title']),
-                'course_code' => htmlspecialchars($row['course_code']),
-                'result_id' => htmlspecialchars($row['result_id'])
-            );
-
-            if ($isLoggedIn) {
-                $entry['grade'] = htmlspecialchars($row['grade']);
-                $entry['status'] = htmlspecialchars($row['cr_status']);
-            }
-
-            $data[] = $entry;
-        }
-
-        return json_encode($data);
-    }
-    
 }
 
 ?>

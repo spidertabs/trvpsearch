@@ -202,4 +202,34 @@
         $("#signupLoading").find("#afS").remove();
       });
   });
+
+  $('#search-box').on("keyup input", function() {
+    /* Get input value on change */
+    var inputVal = $(this).val();
+    var resultDropdown = $('#search-results');
+    if (inputVal.length) {
+      $.ajax({
+        url: "forms/search.php",
+        method: "GET",
+        data: { term: inputVal },
+        success: function(data) {
+          // Display the returned data in the browser
+          resultDropdown.html(data);
+        },
+        error: function(xhr, status, error) {
+          console.error("Error fetching search results: " + error);
+          resultDropdown.html('<p>Error fetching results. Please try again later.</p>');
+        }
+      });
+    } else {
+      resultDropdown.empty();
+    }
+  });
+
+  // Set search input value on click of result item
+  $(document).on("click", "#search-results table tr", function() {
+    var courseTitle = $(this).find("td:eq(1) p:first-child").text();
+    $('#search-box').val(courseTitle);
+    $('#search-results').empty();
+  });
 })(jQuery);
