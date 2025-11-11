@@ -1,3 +1,4 @@
+// js/script.js
 (function ($) {
   const tosCheckbox = document.getElementById("tos");
   const signupButton = document.getElementById("signup");
@@ -27,10 +28,11 @@
     $(".passwordErr").html("");
 
     var formData = $(this).serialize();
+    formData += "&action=signin"; // Add action parameter
 
     $.ajax({
       type: "POST",
-      url: "forms/accounts/signin.php",
+      url: "includes/auth.php",
       data: formData,
       dataType: "json",
       encode: true,
@@ -68,25 +70,6 @@
                   "</span>"
               );
             }
-
-            // if (data.errors.login) {
-            //   $(".password").addClass("is-invalid");
-            //   $(".passwordErr").html(
-            //     '<span class="badge badge-danger btn-block mb-3" style="width: fit-content;display: inline;"> <i class="fas fa-triangle-exclamation text-warning"></i> ' +
-            //       data.errors.login +
-            //       "</span>"
-            //   );
-            // }
-
-            /*
-            if (data.errors.email || data.errors.password) {
-              $(".email").addClass("is-invalid");
-              $(".password").addClass("is-invalid");
-
-              $(".err").html(
-                '<span class="badge badge-danger btn-block mb-3" style="width: fit-content;display: inline;"> <i class="fas fa-triangle-exclamation text-warning"></i> Invalid email or password</span>'
-              );
-            } */
           } catch (error) {
             console.error("Error handling error response:", error);
           }
@@ -135,10 +118,11 @@
     ).html("");
 
     var formData = $(this).serialize();
+    formData += "&action=signup"; // Add action parameter
 
     $.ajax({
       type: "POST",
-      url: "forms/accounts/signup.php",
+      url: "includes/auth.php",
       data: formData,
       dataType: "json",
       encode: true,
@@ -209,7 +193,7 @@
     var resultDropdown = $('#search-results');
     if (inputVal.length) {
       $.ajax({
-        url: "forms/search.php",
+        url: "includes/search.php",
         method: "GET",
         data: { term: inputVal },
         success: function(data) {

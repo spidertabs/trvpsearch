@@ -1,11 +1,7 @@
 <?php
-// forms/search.php
-require_once './../includes/connect/beta.php';
-
-// Ensure session is started
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+// includes/search.php
+require_once __DIR__ . '/db_connect.php';
+require_once __DIR__ . '/functions.php';
 
 // Create an instance of Trvpsearch class with the database connection
 $trvpSearch = new Trvpsearch($link);
@@ -25,18 +21,18 @@ try {
 
         // Check if user is logged in using the isLoggedIn method from Trvpsearch class
         if ($trvpSearch->isLoggedIn()) {
+            $regNo = $_SESSION['regNo'];
+            
             if ($column) {
-                // User is logged in and searching for a specific term
+                // User is logged in and searching for a specific term (programme filter)
                 $sql = "
                     SELECT DISTINCT c.course_id, c.course_code, c.course_title, c.year, c.semester, l.l_name, l.mobile, l.l_avatar, r.grade, r.status 
                     FROM courses c
-                    JOIN course_results r ON c.course_code = r.course_code
+                    LEFT JOIN course_results r ON c.course_code = r.course_code AND r.regNo = :regNo
                     JOIN lecturers l ON c.l_code = l.l_code
-                    WHERE c.$column = 'Yes' AND r.regNo = :regNo";
+                    WHERE c.$column = 'Yes'";
                 
                 $stmt = $link->prepare($sql);
-                $regNo = $_SESSION['regNo'];  // Assuming regNo is stored in session
-
                 // Bind parameters to statement
                 $stmt->bindParam(":regNo", $regNo);
             } else {
@@ -45,13 +41,11 @@ try {
                 $sql = "
                     SELECT DISTINCT c.course_id, c.course_code, c.course_title, c.year, c.semester, l.l_name, l.mobile, l.l_avatar, r.grade, r.status 
                     FROM courses c
-                    JOIN course_results r ON c.course_code = r.course_code
+                    LEFT JOIN course_results r ON c.course_code = r.course_code AND r.regNo = :regNo
                     JOIN lecturers l ON c.l_code = l.l_code
-                    WHERE c.course_title LIKE :term AND r.regNo = :regNo";
+                    WHERE c.course_title LIKE :term";
                 
                 $stmt = $link->prepare($sql);
-                $regNo = $_SESSION['regNo'];  // Assuming regNo is stored in session
-
                 // Bind parameters to statement
                 $stmt->bindParam(":term", $term);
                 $stmt->bindParam(":regNo", $regNo);
@@ -117,8 +111,12 @@ try {
                         <td style="padding: 0.5rem 1rem;">' . htmlspecialchars($row["year"]) . '</td>
                         <td style="padding: 0.5rem 1rem;">' . htmlspecialchars($row["semester"]) . '</td>';
                 if ($trvpSearch->isLoggedIn()) {
+                    // Check if student has taken this course
+                    $grade = $row["grade"] ?? '-';
+                    $status = $row["status"] ?? '-';
+                    
                     $badgeClass = '';
-                    switch ($row["status"]) {
+                    switch ($status) {
                         case 'Passed':
                             $badgeClass = 'badge-success';
                             break;
@@ -128,12 +126,15 @@ try {
                         case 'TBD':
                             $badgeClass = 'badge-warning';
                             break;
+                        case '-':
+                            $badgeClass = 'badge-secondary';
+                            break;
                         default:
-                            $badgeClass = '';
+                            $badgeClass = 'badge-secondary';
                             break;
                     }
-                    echo '<td style="padding: 0.5rem 1rem;">' . htmlspecialchars($row["grade"]) . '</td>
-                          <td style="padding: 0.5rem 1rem;"><span class="badge rounded-pill d-inline ' . $badgeClass . '">' . htmlspecialchars($row["status"]) . '</span></td>';
+                    echo '<td style="padding: 0.5rem 1rem;">' . htmlspecialchars($grade) . '</td>
+                          <td style="padding: 0.5rem 1rem;"><span class="badge rounded-pill d-inline ' . $badgeClass . '">' . htmlspecialchars($status) . '</span></td>';
                 }
                 echo '</tr>';
             }

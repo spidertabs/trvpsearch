@@ -1,14 +1,12 @@
+<!-- index.php -->
 <?php
-// Initialize the session
-include('includes/connect/alpha.php');
-
-@$studentId = $_SESSION['studentId'];
-$regNo = $_SESSION['regNo'];
-$email = $_SESSION['email'];
+// Initialize the session and database connection
+require_once 'includes/db_connect.php';
+require_once 'includes/functions.php';
+require_once 'includes/session.php';
 
 $errors = [];
 $data = [];
-$get = new Trvpsearch($link);
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +26,7 @@ $get = new Trvpsearch($link);
 </head>
 
 <body>
-  <!--Main Navigation-->
+  <!--Main Navigation -->
   <style>
     /* Default height for small devices */
     #intro {

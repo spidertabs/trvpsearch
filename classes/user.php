@@ -1,5 +1,7 @@
 <?php
-// user.php
+
+// classes/user.php
+/** @noinspection PhpUndefinedVariableInspection */
 class Trvpsearch
 {
     private $_link;
@@ -8,6 +10,7 @@ class Trvpsearch
     {
         $this->_link = $link;
     }
+    
     public function check_email($email)
     {
         if (!$this->_link) {
@@ -25,11 +28,11 @@ class Trvpsearch
                 return ['success' => true, 'data' => null];
             }
         } catch (PDOException $e) {
-            error_log('Error: check_email: ' . $e->getMessage()); // log the full error message
-            return ['success' => false, 'message' => 'An error occurred: ' . $e->getMessage()]; // return the exact error message
-
+            error_log('Error: check_email: ' . $e->getMessage());
+            return ['success' => false, 'message' => 'An error occurred: ' . $e->getMessage()];
         }
     }
+    
     public function check_regNo($regNo)
     {
         if (!$this->_link) {
@@ -47,10 +50,11 @@ class Trvpsearch
                 return ['success' => true, 'data' => null];
             }
         } catch (PDOException $e) {
-            error_log('Error: check_regNo: ' . $e->getMessage()); // log the full error message
-            return ['success' => false, 'message' => 'An error occurred: ' . $e->getMessage()]; // return the exact error message
+            error_log('Error: check_regNo: ' . $e->getMessage());
+            return ['success' => false, 'message' => 'An error occurred: ' . $e->getMessage()];
         }
     }
+    
     public function getStudent()
     {
         if (!$this->_link) {
@@ -87,6 +91,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function isValidProgramme($programme)
     {
         if (strlen($programme) < 1) {
@@ -97,6 +102,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function isValidFullname($fullname)
     {
         if (empty($fullname)) {
@@ -107,6 +113,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function isValidRegNo($regNo)
     {
         if (empty($regNo)) {
@@ -117,6 +124,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function isValidEmail($email)
     {
         if (empty($email)) {
@@ -130,6 +138,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function isValidPassword($password)
     {
         if (empty($password)) {
@@ -143,6 +152,7 @@ class Trvpsearch
         }
         return ['success' => true, 'message' => ''];
     }
+    
     public function createStudent($school, $programme, $fullname, $regNo, $email, $password): array
     {
         try {
@@ -190,6 +200,7 @@ class Trvpsearch
             throw new RuntimeException('Database error: ' . $e->getMessage() . ' (Error code: ' . $e->getCode() . ')', 0, $e);
         }
     }
+    
     public function loginWithEmail($email, $password)
     {
         if (empty($email) || empty($password)) {
@@ -225,32 +236,138 @@ class Trvpsearch
                 return ['success' => false, 'message' => 'Login failed... Invalid email or password'];
             }
         } catch (PDOException $e) {
-            error_log('Error in loginWithEmail: ' . $e->getMessage()); // log the full error message
-            return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()]; // return the exact error message
+            error_log('Error in loginWithEmail: ' . $e->getMessage());
+            return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
         }
     }
+    
     public function getLoggedInEmail()
     {
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             return $_SESSION['email'];
         }
+        return null;
     }
+    
     public function isLoggedIn()
     {
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             return true;
         }
+        return false;
     }
+    
     public function logout()
     {
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            // Unset all session variables first
+            $_SESSION = array();
+            
+            // If it's desired to kill the session cookie, also delete the session cookie
+            if (ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(session_name(), '', time() - 42000,
+                    $params["path"], $params["domain"],
+                    $params["secure"], $params["httponly"]
+                );
+            }
+            
+            // Finally, destroy the session
             session_destroy();
-            unset($_SESSION['loggedin']);
-            unset($_SESSION['studentId']);
-            unset($_SESSION['regNo']);
-            unset($_SESSION['email']);
-            unset($_SESSION['fullname']);
             return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get all course results for a student
+     * @param string|null $regNo Optional registration number, defaults to session regNo
+     * @return array|false
+     */
+    public function getStudentResults($regNo = null)
+    {
+        if (!$this->_link) {
+            error_log('Database connection not found in getStudentResults');
+            return false;
+        }
+
+        // Use session regNo if not provided
+        if ($regNo === null) {
+            $regNo = $_SESSION['regNo'] ?? null;
+        }
+
+        if (!$regNo) {
+            error_log('No registration number provided in getStudentResults');
+            return false;
+        }
+
+        try {
+            $stmt = $this->_link->prepare("
+                SELECT DISTINCT 
+                    c.course_id, 
+                    c.course_code, 
+                    c.course_title, 
+                    c.year, 
+                    c.semester, 
+                    l.l_name, 
+                    l.mobile, 
+                    l.l_avatar, 
+                    r.grade, 
+                    r.status 
+                FROM courses c
+                JOIN course_results r ON c.course_code = r.course_code
+                JOIN lecturers l ON c.l_code = l.l_code
+                WHERE r.regNo = :regNo
+                ORDER BY c.year, c.semester, c.course_title
+            ");
+            $stmt->bindParam(":regNo", $regNo, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results ?: false;
+        } catch (PDOException $e) {
+            error_log('Error in getStudentResults: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Get student statistics (passed, failed, pending)
+     * @param string|null $regNo Optional registration number
+     * @return array
+     */
+    public function getStudentStats($regNo = null)
+    {
+        if (!$this->_link) {
+            return ['passed' => 0, 'redo' => 0, 'tbd' => 0, 'total' => 0];
+        }
+
+        if ($regNo === null) {
+            $regNo = $_SESSION['regNo'] ?? null;
+        }
+
+        if (!$regNo) {
+            return ['passed' => 0, 'redo' => 0, 'tbd' => 0, 'total' => 0];
+        }
+
+        try {
+            $stmt = $this->_link->prepare("
+                SELECT 
+                    COUNT(*) as total,
+                    SUM(CASE WHEN status = 'Passed' THEN 1 ELSE 0 END) as passed,
+                    SUM(CASE WHEN status = 'Redo' THEN 1 ELSE 0 END) as redo,
+                    SUM(CASE WHEN status = 'TBD' THEN 1 ELSE 0 END) as tbd
+                FROM course_results
+                WHERE regNo = :regNo
+            ");
+            $stmt->bindParam(":regNo", $regNo, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $stats = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stats ?: ['passed' => 0, 'redo' => 0, 'tbd' => 0, 'total' => 0];
+        } catch (PDOException $e) {
+            error_log('Error in getStudentStats: ' . $e->getMessage());
+            return ['passed' => 0, 'redo' => 0, 'tbd' => 0, 'total' => 0];
         }
     }
 
@@ -258,7 +375,6 @@ class Trvpsearch
     {
         if ($this->isLoggedIn()) {
             $email = $_SESSION['email'];
-            //$user = $this->getStudentByEmail($email);
             $user = $this->getStudent();
 
             if ($user) {
@@ -275,8 +391,8 @@ class Trvpsearch
                     <div class="dropdown">
                         <a data-mdb-dropdown-init class="btn btn-success rounded-pill dropdown-toggle d-flex align-items-center hidden-arrow btn-sm" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" style="padding: 5px 10px">
                             <img src="images/avatar.jpg" class="rounded-circle" height="35" loading="lazy" />
-                            <span class="ps-2" style="font-size: initial;"><?php echo $secondName; ?></span>
-                            <span class="badge badge-warning ms-2"><?php echo $programme; ?></span>
+                            <span class="ps-2" style="font-size: initial;"><?php echo htmlspecialchars($secondName); ?></span>
+                            <span class="badge badge-warning ms-2"><?php echo htmlspecialchars($programme); ?></span>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -300,7 +416,7 @@ class Trvpsearch
                                 <hr class="dropdown-divider my-0" />
                             </li>
                             <li class="text-center">
-                                <a class="dropdown-item bg-danger text-white" href="logout"> <i class="fas fa-power-off"></i> Logout</a>
+                                <a class="dropdown-item bg-danger text-white" href="includes/logout.php"> <i class="fas fa-power-off"></i> Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -319,14 +435,12 @@ class Trvpsearch
                                         <input type="email" name="email" class="email form-control form-control-sm" />
                                         <label class="form-label" for="email">Email address</label>
                                     </div>
-                                    <!-- <div class="emailErr mt-n2"></div> -->
                                 </div>
                                 <div class="col">
                                     <div data-mdb-input-init class="form-outline">
                                         <input type="password" name="password" class="password form-control form-control-sm" />
                                         <label class="form-label" for="password">Password</label>
                                     </div>
-                                    <!-- <div class="passwordErr mt-n2"></div> -->
                                 </div>
                             </div>
                             <div class="err d-block d-flex justify-content-center">
@@ -339,20 +453,15 @@ class Trvpsearch
                         <div>
                             <div class="col">
                                 <button data-mdb-ripple-init type="submit" id="signin" name="signin" class="btn btn-outline-primary btn-sm">
-                                    SIGN IN <strong id="afterSignin"> </strong>
+                                    SIGN IN <strong id="signinLoading"></strong>
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- loginErr -->
-                    <!-- <div class="loginErr text-center">  </div>
-            <div id="afterSignin" class="text-center"></div> -->
                 </form>
             </ul>
 <?php
         }
     }
 }
-
 ?>
